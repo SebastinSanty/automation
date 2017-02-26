@@ -9,23 +9,45 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Button,
+  Alert
 } from 'react-native';
+
+const onButtonPress23on = () => {
+  fetch('http://192.168.0.3/23/on', {  
+  method: 'GET',
+})
+};
+
+const onButtonPress23off = () => {
+  fetch('http://192.168.0.3/23/off', {  
+  method: 'GET',
+})
+};
 
 export default class mobile extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to Room automation!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.android.js
+          Control Sebastin's Room
         </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+        <Button
+        onPress={onButtonPress23on}
+        title="Switch Backlight On"
+        color="#841584"
+        accessibilityLabel="Learn more about this purple button"
+        />
+        <Button
+        onPress={onButtonPress23off}
+        title="Switch Backlight Off"
+        color="#841584"
+        accessibilityLabel="Learn more about this purple button"
+        />
       </View>
     );
   }

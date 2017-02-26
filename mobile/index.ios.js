@@ -9,33 +9,45 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Button,
+  Alert
 } from 'react-native';
 
-class HelloWorld extends Component {
-  render() {
-    return (
-        <Text>
-        </Text>
+const onButtonPress23on = () => {
+  fetch('http://192.168.0.3/23/on', {  
+  method: 'GET',
+})
+};
 
-      );
-  }
-}
+const onButtonPress23off = () => {
+  fetch('http://192.168.0.3/23/off', {  
+  method: 'GET',
+})
+};
 
 export default class mobile extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to Room automation!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.ios.js
+          Control Sebastin's Room
         </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <Button
+        onPress={onButtonPress23on}
+        title="Switch Backlight On"
+        color="#841584"
+        accessibilityLabel="Learn more about this purple button"
+        />
+        <Button
+        onPress={onButtonPress23off}
+        title="Switch Backlight Off"
+        color="#841584"
+        accessibilityLabel="Learn more about this purple button"
+        />
       </View>
     );
   }
